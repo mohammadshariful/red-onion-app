@@ -1,0 +1,63 @@
+header {
+  height: 20%;
+  padding: 15px 40px;
+  background-color: #fff;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 150px;
+}
+.link {
+  text-decoration: none;
+  margin: 0 15px;
+  color: #000;
+  font-size: 17px;
+  font-weight: 500;
+}
+.link:hover {
+  color: #8d3daf;
+}
+
+.cart-icon {
+  position: relative;
+}
+.cart-count {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  color: #e6425e;
+}
+
+.signup {
+  background-color: #e6425e;
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 16px;
+  transition: 0.3s ease-in-out;
+}
+.signup:hover {
+  background-color: #e6425dce;
+  color: #fff;
+}
+
+@media only screen and (max-width: 576px) {
+  header {
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .logo {
+    width: 20%;
+    margin-left: 5px;
+  }
+  .link {
+    font-size: 16px;
+  }
+  .signup {
+    padding: 6px 12px;
+  }
+}
