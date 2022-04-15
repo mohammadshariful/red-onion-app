@@ -1,26 +1,68 @@
 import React from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import logo from "../../Assests/images/logo2.png";
+import auth from "../../Firebase/Firebase.init";
+import useStateHandle from "../../Hooks/useStateHandle";
 import SocialLogin from "../SocialLogin/SocialLogin";
 const Register = () => {
+  const {
+    name,
+    email,
+    password,
+    confirmPassword,
+    handleName,
+    handleEmail,
+    handlePassword,
+    handleConfirmPassword,
+  } = useStateHandle();
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const emailValue = email.value;
+    const passwordValue = password.value;
+    createUserWithEmailAndPassword(emailValue, passwordValue);
+  };
   return (
     <div className="submit-container">
       <div className="from-container">
         <div className="form-img">
           <img src={logo} alt="" />
         </div>
-        <form>
+        <form onSubmit={handleFormSubmit}>
           <div className="from-group">
-            <input type="text" placeholder="Name" />
+            <input onBlur={handleName} type="text" placeholder="Name" />
           </div>
           <div className="from-group">
-            <input type="email" placeholder="Email" required />
+            <input
+              onBlur={handleEmail}
+              type="email"
+              placeholder="Email"
+              required
+            />
+            {email?.error && <p className="error">{email.error}</p>}
           </div>
           <div className="from-group">
-            <input type="password" placeholder="Password" required />
+            <input
+              onBlur={handlePassword}
+              type="password"
+              placeholder="Password"
+              required
+            />
+            {password?.error && <p className="error">{password.error}</p>}
           </div>
           <div className="from-group">
-            <input type="password" placeholder="Confirm Password" required />
+            <input
+              onBlur={handleConfirmPassword}
+              type="password"
+              placeholder="Confirm Password"
+              required
+            />
+            {confirmPassword?.error && (
+              <p className="error">{confirmPassword.error}</p>
+            )}
           </div>
           <input className="submit-btn" type="submit" value="Sign Up" />
         </form>

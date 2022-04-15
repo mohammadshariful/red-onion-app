@@ -12,6 +12,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Register from "./Pages/Register/Register";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
+import RequireAuth from "./Pages/Shared/RequireAuth/RequireAuth";
 function App() {
   return (
     <>
@@ -23,8 +24,22 @@ function App() {
           <Route path="lunch" element={<Lunch />} />
           <Route path="dinner" element={<Dinner />} />
         </Route>
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/delivery" element={<Delivery />} />
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <Checkout />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/delivery"
+          element={
+            <RequireAuth>
+              <Delivery />
+            </RequireAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
