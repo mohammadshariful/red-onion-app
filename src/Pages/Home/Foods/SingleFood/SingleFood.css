@@ -1,0 +1,40 @@
+.singleFood-container {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #ffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.singleFood-container img {
+  width: 100%;
+}
+.singleFood-container h4 {
+  margin-top: 10px;
+}
+.singleFood-container p {
+  color: #222121a8;
+}
+.singleFood-container h3 {
+  font-size: 24px;
+  color: #e6425e;
+}
+.detils {
+  margin-top: 6px;
+  text-align: end;
+}
+.detils small {
+  background-color: #e6425e;
+  font-weight: bold;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  .singleFood-container {
+    width: 100%;
+  }
+}

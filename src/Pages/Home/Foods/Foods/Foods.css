@@ -1,0 +1,25 @@
+.foods-container {
+  width: 90%;
+  margin: 0 auto;
+}
+.link-container {
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-btn {
+  border: 0;
+  display: block;
+  margin: 0 auto;
+  background-color: #e6425e;
+  color: #fff;
+  font-size: 17px;
+  border-radius: 20px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.checkout-btn:hover {
+  background-color: #e6425dce;
+  color: #fff;
+}
