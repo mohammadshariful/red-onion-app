@@ -4,7 +4,9 @@ const Feature = ({ feature }) => {
   const { icon, img, name, description } = feature;
   return (
     <div className="feautre-container">
-      <img className="feature-img" src={img} alt="" />
+      <div className="img-container">
+        <img className="feature-img" src={img} alt="" />
+      </div>
       <div className="feautre-info">
         <div className="feature-title">
           <img src={icon} alt="" />

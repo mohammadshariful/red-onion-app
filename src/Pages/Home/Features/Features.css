@@ -13,6 +13,7 @@
 .sub-title {
   width: 40%;
   padding: 20px 0;
+  font-size: 20px;
 }
 /* feature container
  */
@@ -23,8 +24,16 @@
   padding: 10px 20px;
   border-radius: 16px;
 }
+.img-container {
+  border-radius: 8px;
+  overflow: hidden;
+}
 .feature-img {
+  transition: 0.5s ease-out;
   width: 100%;
+}
+.feature-img:hover {
+  transform: scale(1.5);
 }
 .feautre-info {
   margin: 10px 0;
@@ -69,5 +78,6 @@
   }
   .sub-title {
     width: 100%;
+    font-size: 16px;
   }
 }
