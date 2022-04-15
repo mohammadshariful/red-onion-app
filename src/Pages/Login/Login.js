@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../Assests/images/logo2.png";
+import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
 const Login = () => {
   return (
@@ -19,6 +20,7 @@ const Login = () => {
           <input className="submit-btn" type="submit" value="LogIn" />
         </form>
         <p className="forget-password">Forget your password?</p>
+        <SocialLogin />
         <p className="login-info">
           Are your new user? <Link to="/register">Create an account</Link>
         </p>

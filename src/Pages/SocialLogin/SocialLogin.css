@@ -1,0 +1,28 @@
+.socail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.social-btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 6px;
+  align-items: center;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.horizontal-line {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.middle-line {
+  display: inline-block;
+  width: 200px;
+  height: 1px;
+  margin: 0 8px;
+  background-color: #000;
+}

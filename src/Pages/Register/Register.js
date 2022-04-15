@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../Assests/images/logo2.png";
+import SocialLogin from "../SocialLogin/SocialLogin";
 const Register = () => {
   return (
     <div className="submit-container">
@@ -23,6 +24,7 @@ const Register = () => {
           </div>
           <input className="submit-btn" type="submit" value="Sign Up" />
         </form>
+        <SocialLogin />
         <p className="login-info">
           Already have an account? <Link to="/login">Login</Link>
         </p>
