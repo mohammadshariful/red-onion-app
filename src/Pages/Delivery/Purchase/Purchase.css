@@ -48,3 +48,9 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 576px) {
+  .purchase-container {
+    width: 100%;
+  }
+}

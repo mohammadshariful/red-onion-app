@@ -8,6 +8,7 @@ import Foods from "./Pages/Home/Foods/Foods/Foods";
 import Lunch from "./Pages/Home/Foods/Luch/Lunch";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
+import NotFound from "./Pages/NotFound/NotFound";
 import Register from "./Pages/Register/Register";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
@@ -26,6 +27,7 @@ function App() {
         <Route path="/delivery" element={<Delivery />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

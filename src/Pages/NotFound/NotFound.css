@@ -1,0 +1,10 @@
+.error-container {
+  margin: 20px auto;
+  max-width: 70vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-container img {
+  width: 100%;
+}
