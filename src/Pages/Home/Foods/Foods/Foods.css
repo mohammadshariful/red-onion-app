@@ -5,6 +5,8 @@
 .link-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
+  color: #e6425e;
 }
 
 .checkout-btn {

@@ -1,0 +1,48 @@
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: #000;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.cart-img {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin-right: 10px;
+}
+.delivery-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.increase-decrease {
+  display: flex;
+  align-items: center;
+}
+.increase-decrease .calculate {
+  margin: 0 10px;
+  padding: 6px;
+  font-size: 20px;
+  border-radius: 20px;
+  background-color: gray;
+  color: #fff;
+}
+.increase-decrease input {
+  width: 40px;
+}
+
+@media only screen and (max-width: 576px) {
+  .product-info h2 {
+    font-size: 17px;
+  }
+  .increase-decrease {
+    flex-direction: column;
+  }
+  .delivery-info {
+    font-size: 17px;
+  }
+}

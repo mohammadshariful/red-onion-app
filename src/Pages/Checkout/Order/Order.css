@@ -1,0 +1,17 @@
+.order-container {
+  margin-top: 10px;
+}
+.order-summary {
+  margin-top: 10px;
+}
+.summary-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+@media only screen and (max-width: 576px) {
+  .summary-info {
+    font-size: 14px;
+  }
+}
