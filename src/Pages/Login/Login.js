@@ -5,7 +5,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../Assests/images/logo2.png";
-import auth from "../../Firebase/Firebase.init";
+import auth from "../../Firebase.init";
 import useStateHandle from "../../Hooks/useStateHandle";
 import Loading from "../Shared/Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";

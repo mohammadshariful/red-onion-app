@@ -1,10 +1,12 @@
 import React from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../Assests/images/logo2.png";
-import auth from "../../Firebase/Firebase.init";
+import auth from "../../Firebase.init";
 import useStateHandle from "../../Hooks/useStateHandle";
+import Loading from "../Shared/Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
+
 const Register = () => {
   const {
     name,
@@ -18,6 +20,13 @@ const Register = () => {
   } = useStateHandle();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  if (loading) {
+    return <Loading />;
+  }
+  if (user) {
+    navigate("/");
+  }
 
   const handleFormSubmit = (event) => {
     event.preventDefault();

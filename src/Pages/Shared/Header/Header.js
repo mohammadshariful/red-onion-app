@@ -4,7 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { BsCart } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../Assests/images/logo2.png";
-import auth from "../../../Firebase/Firebase.init";
+import auth from "../../../Firebase.init";
 import { MyContext } from "../../../MyContext/MyContext";
 import Loading from "../../Shared/Loading/Loading";
 import "./Header.css";

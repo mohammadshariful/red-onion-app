@@ -7,7 +7,6 @@ import Checkout from "./Pages/Checkout/Checkout/Checkout";
 import Delivery from "./Pages/Delivery/Delivery/Delivery";
 import Breakfast from "./Pages/Home/Foods/Breakfast/Breakfast";
 import Dinner from "./Pages/Home/Foods/Dinner/Dinner";
-import Foods from "./Pages/Home/Foods/Foods/Foods";
 import Lunch from "./Pages/Home/Foods/Luch/Lunch";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
@@ -38,11 +37,14 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/" element={<Foods />}>
+
+          <Route path="/" element={<Home />}>
+            <Route index element={<Breakfast />} />
             <Route path="breakfast" element={<Breakfast />} />
             <Route path="lunch" element={<Lunch />} />
             <Route path="dinner" element={<Dinner />} />
           </Route>
+
           <Route path="/cart" element={<AddToCart />} />
           <Route
             path="/checkout"
