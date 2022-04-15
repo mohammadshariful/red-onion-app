@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyContext } from "../../../MyContext/MyContext";
 import Cart from "../Cart/Cart";
 import "./Order.css";
 const Order = () => {
-  const carts = [1, 2.3];
+  const { carts } = useContext(MyContext);
   return (
     <div className="order-container">
       <h3>
@@ -16,8 +17,8 @@ const Order = () => {
       </p>
       <div>
         <ul>
-          {carts.map((cart, index) => (
-            <Cart key={index} cart={cart} />
+          {carts?.map((cart) => (
+            <Cart key={cart._id} cart={cart} />
           ))}
         </ul>
       </div>

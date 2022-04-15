@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import { MyContext } from "./MyContext/MyContext";
+import AddToCart from "./Pages/AddToCart/AddToCart";
 import Checkout from "./Pages/Checkout/Checkout/Checkout";
 import Delivery from "./Pages/Delivery/Delivery/Delivery";
 import Breakfast from "./Pages/Home/Foods/Breakfast/Breakfast";
@@ -13,38 +16,56 @@ import Register from "./Pages/Register/Register";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import RequireAuth from "./Pages/Shared/RequireAuth/RequireAuth";
+
 function App() {
+  const [carts, setCarts] = useState([]);
+
+  const addToCart = (food) => {
+    const exits = carts.find((cart) => cart._id === food._id);
+    let newCart = [];
+    if (!exits) {
+      newCart = [...carts, food];
+    } else {
+      const rest = carts.filter((cart) => cart._id !== food._id);
+      newCart = [...rest, exits];
+    }
+    setCarts(newCart);
+  };
+
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/" element={<Foods />}>
-          <Route path="breakfast" element={<Breakfast />} />
-          <Route path="lunch" element={<Lunch />} />
-          <Route path="dinner" element={<Dinner />} />
-        </Route>
-        <Route
-          path="/checkout"
-          element={
-            <RequireAuth>
-              <Checkout />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/delivery"
-          element={
-            <RequireAuth>
-              <Delivery />
-            </RequireAuth>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
+      <MyContext.Provider value={{ addToCart, carts }}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Foods />}>
+            <Route path="breakfast" element={<Breakfast />} />
+            <Route path="lunch" element={<Lunch />} />
+            <Route path="dinner" element={<Dinner />} />
+          </Route>
+          <Route path="/cart" element={<AddToCart />} />
+          <Route
+            path="/checkout"
+            element={
+              <RequireAuth>
+                <Checkout />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/delivery"
+            element={
+              <RequireAuth>
+                <Delivery />
+              </RequireAuth>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </MyContext.Provider>
     </>
   );
 }

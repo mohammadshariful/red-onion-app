@@ -18,3 +18,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.error {
+  margin: 5px 0;
+  color: #e74c3c;
+  font-weight: 500;
+}

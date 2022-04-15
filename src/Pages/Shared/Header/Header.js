@@ -1,13 +1,16 @@
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useContext } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BsCart } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../Assests/images/logo2.png";
 import auth from "../../../Firebase/Firebase.init";
+import { MyContext } from "../../../MyContext/MyContext";
 import Loading from "../../Shared/Loading/Loading";
 import "./Header.css";
 const Header = () => {
+  const { carts } = useContext(MyContext);
+
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -27,7 +30,7 @@ const Header = () => {
         <div className="nav-links">
           <Link className="link cart-icon" to="/cart">
             <BsCart />
-            <small className="cart-count">10</small>
+            <small className="cart-count">{carts?.length}</small>
           </Link>
           {user ? (
             <Link onClick={() => signOut(auth)} className="link" to="/login">
