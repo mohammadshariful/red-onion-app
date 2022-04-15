@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Shipping.css";
 const Shipping = () => {
+  const navigate = useNavigate();
   return (
     <div className="shipping-container">
       <h2>Edit Delivery Details</h2>
@@ -21,7 +23,12 @@ const Shipping = () => {
         <div className="from-group">
           <input type="text" placeholder="Add delivery instructor" required />
         </div>
-        <input className="submit-btn" type="submit" value="Save & Continue" />
+        <input
+          onClick={() => navigate("/delivery")}
+          className="submit-btn"
+          type="submit"
+          value="Save & Continue"
+        />
       </form>
     </div>
   );
