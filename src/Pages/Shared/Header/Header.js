@@ -24,7 +24,7 @@ const Header = () => {
             Login
           </Link>
 
-          <Link className="link signup" to="/signup">
+          <Link className="link signup" to="/register">
             Sign up
           </Link>
         </div>

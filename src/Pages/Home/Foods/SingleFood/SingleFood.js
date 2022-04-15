@@ -1,7 +1,6 @@
 import React from "react";
 import "./SingleFood.css";
 const SingleFood = ({ SingleFood }) => {
-  console.log(SingleFood);
   const { _id, name, description, picture, price } = SingleFood;
   return (
     <div className="singleFood-container">

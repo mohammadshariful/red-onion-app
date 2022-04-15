@@ -42,6 +42,9 @@ ul li {
   color: #faf2f2e7;
 }
 @media only screen and (max-width: 576px) {
+  footer {
+    margin-top: 100px;
+  }
   .footer-container {
     justify-content: center;
     flex-direction: column;
