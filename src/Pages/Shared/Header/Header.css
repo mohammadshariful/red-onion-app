@@ -24,6 +24,10 @@ nav {
 .link:hover {
   color: #8d3daf;
 }
+.nav-links {
+  display: flex;
+  align-items: center;
+}
 
 .cart-icon {
   position: relative;
@@ -46,7 +50,10 @@ nav {
   background-color: #e6425dce;
   color: #fff;
 }
-
+.user-photo {
+  width: 30px;
+  border-radius: 50%;
+}
 @media only screen and (max-width: 576px) {
   header {
     padding: 15px 0;

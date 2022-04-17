@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../Assests/images/logo2.png";
 import auth from "../../Firebase.init";
 import useStateHandle from "../../Hooks/useStateHandle";
@@ -19,20 +20,26 @@ const Register = () => {
     handleConfirmPassword,
   } = useStateHandle();
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, {
+      sendEmailVerification: true,
+    });
   const navigate = useNavigate();
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
+
   if (loading) {
     return <Loading />;
   }
-  if (user) {
-    navigate("/");
-  }
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     const emailValue = email.value;
     const passwordValue = password.value;
-    createUserWithEmailAndPassword(emailValue, passwordValue);
+    await createUserWithEmailAndPassword(emailValue, passwordValue);
+    await toast.success("user create success");
   };
   return (
     <div className="submit-container">
@@ -73,6 +80,7 @@ const Register = () => {
               <p className="error">{confirmPassword.error}</p>
             )}
           </div>
+          {error && <p className="error">{error.message}</p>}
           <input className="submit-btn" type="submit" value="Sign Up" />
         </form>
         <SocialLogin />

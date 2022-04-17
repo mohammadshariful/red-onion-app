@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useAuthState,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../Assests/images/logo2.png";
 import auth from "../../Firebase.init";
 import useStateHandle from "../../Hooks/useStateHandle";
@@ -16,15 +18,24 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
-  if (user) {
-    navigate(from, { replace: true });
-  }
-  const { email, password, handleEmail, handlePassword } = useStateHandle();
   const [signInWithEmailAndPassword, user1, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, error2] =
+    useSendPasswordResetEmail(auth);
 
-  if (loading) {
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, user1]);
+
+  const { email, password, handleEmail, handlePassword } = useStateHandle();
+
+  if (loading || sending) {
     return <Loading />;
+  }
+  if (error) {
+    console.log(error);
   }
 
   const handleFormSubmit = (event) => {
@@ -37,6 +48,15 @@ const Login = () => {
   if (error) {
     console.log(error.message);
   }
+  const handleForgetPassword = async () => {
+    const emailValue = email.value;
+    if (emailValue) {
+      await sendPasswordResetEmail(emailValue);
+      toast.success("Email sent");
+    } else {
+      toast.error("Please enter your email");
+    }
+  };
 
   return (
     <div className="submit-container">
@@ -64,7 +84,9 @@ const Login = () => {
           {error && <p className="error">{error.message}</p>}
           <input className="submit-btn" type="submit" value="LogIn" />
         </form>
-        <p className="forget-password">Forget your password?</p>
+        <p onClick={handleForgetPassword} className="forget-password">
+          Forget your password?
+        </p>
         <SocialLogin />
         <p className="login-info">
           Are your new user? <Link to="/register">Create an account</Link>

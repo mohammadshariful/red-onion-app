@@ -17,6 +17,7 @@ const Header = () => {
   if (loading) {
     return <Loading />;
   }
+
   return (
     <header>
       <nav>
@@ -45,6 +46,7 @@ const Header = () => {
           <Link className="link signup" to="/register">
             Sign up
           </Link>
+          {user && <img className="user-photo" src={user.photoURL} alt="" />}
         </div>
       </nav>
     </header>

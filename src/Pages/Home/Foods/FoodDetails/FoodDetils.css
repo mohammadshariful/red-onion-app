@@ -1,0 +1,95 @@
+.details-container {
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.food-img {
+  width: 30%;
+}
+.food-img img {
+  width: 100%;
+}
+.description-container {
+  width: 50%;
+}
+.description-container h1 {
+  font-size: 35px;
+  margin: 20px 0;
+  color: #e6425e;
+}
+.description-container p {
+  font-weight: 400;
+}
+.price-set {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+.price-set h3 {
+  font-size: 28px;
+  font-weight: normal;
+}
+.calculate-btn {
+  margin-left: 20px;
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+.calculate-btn button {
+  display: block;
+  margin: 0 10px;
+  font-size: 22px;
+  border: 0;
+  cursor: pointer;
+}
+.calculate-btn button:first-child {
+  color: #19bd0a;
+}
+.calculate-btn button:last-child {
+  color: #e6425e;
+}
+.calculate-btn button:hover {
+  color: blueviolet;
+}
+.add-items {
+  display: flex;
+  align-items: center;
+  border: 0;
+  background-color: #e6425e;
+  color: #fff;
+  font-size: 20px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.add-items span {
+  font-weight: 500;
+  margin-left: 10px;
+}
+@media only screen and (max-width: 576px) {
+  .details-container {
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .description-container {
+    width: 100%;
+  }
+  .details-container h1 {
+    font-size: 25px;
+    text-align: center;
+  }
+  .food-img {
+    width: 100%;
+  }
+  .add-items {
+    font-size: 16px;
+    margin: 0 auto;
+  }
+  .food-img img {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+  }
+}
